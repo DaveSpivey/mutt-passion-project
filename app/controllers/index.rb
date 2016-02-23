@@ -4,13 +4,15 @@ end
 
 post '/upload' do
   p params
-  File.open('uploads/' + params['file'][:filename], "w") do |f|
+  root = APP_ROOT.to_s
+  File.open(root + '/public/images/' + params['file'][:filename], "w") do |f|
     f.write(params['file'][:tempfile].read)
-    @picture = Picture.new(url: "/uploads/#{params['file'][:filename]}", mutt_id: params[:mutt_id])
+    @picture = Picture.new(url: "images/#{params['file'][:filename]}", mutt_id: params[:mutt_id])
     if @picture.save
       p "upload saved!"
     end
   end
+  erb :"mutts/show"
 end
 
 # post '/upload' do

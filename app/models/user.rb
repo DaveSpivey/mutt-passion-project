@@ -1,7 +1,7 @@
-# require 'bcrypt'
+require 'bcrypt'
 
 class User < ActiveRecord::Base
-  # include BCrypt
+  include BCrypt
 
   has_many :mutts, foreign_key: :owner_id
   has_many :guesses, class_name: :Breed, foreign_key: :user_id
