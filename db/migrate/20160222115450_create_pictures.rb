@@ -3,6 +3,7 @@ class CreatePictures < ActiveRecord::Migration
     create_table :pictures do |t|
       t.references :mutt
       t.boolean :profile
+      t.string :url
 
       t.timestamps null: false
     end
