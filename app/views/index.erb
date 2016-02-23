@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>MuttWhat</h1>
+
+  <% if !session[:id] %>
+    <div id="session-wrapper">
+      <a id="register" href="/users/new">Register a new account</a>
+
+      <div id="login-wrapper">
+        <h5 class="log">Returning user? Login:</h5>
+        <form id="login" class="log" action="/users/login" method="POST">
+          <input type="email" name="email" placeholder="email">
+          <input type="password" name="password_hash" placeholder="password">
+          <input type="submit">
+        </form>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
