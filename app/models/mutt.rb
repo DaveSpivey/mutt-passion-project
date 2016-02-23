@@ -1,7 +1,7 @@
 class Mutt < ActiveRecord::Base
   belongs_to :owner, class_name: :user
   has_many :breeds, foreign_key: :mutt_id
-  has_many :pictures
+  has_many :pictures, foreign_key: :mutt_id
 
   def self.what
     breed_matcher = {}
