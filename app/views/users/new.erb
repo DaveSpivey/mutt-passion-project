@@ -1,0 +1,10 @@
+<h2>Sign up!</h2>
+
+<h4> <%= @error %> </h4>
+
+<form action="/users/new" method="POST">
+  <p><input type="text" name="user[name]" placeholder="Name"></p>
+  <p><input type="email" name="user[email]" placeholder="email"></p>
+  <p><input type="password" name="user[password_hash]" placeholder="password"></p>
+  <p><input type="submit" value="Join"></p>
+</form>
