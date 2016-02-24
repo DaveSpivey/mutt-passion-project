@@ -14,19 +14,8 @@ post '/users/new' do
   end
 end
 
-post '/users/login' do
-  @user = User.authenticate(params[:email], params[:password_hash])
-
-  if @user
-    session[:id] = @user.id
-    redirect "/users/#{@user.id}"
-  else
-    @error = "Incorrect email/password"
-    erb :index
-  end
-end
-
 get '/users/:id' do
-  @user = User.find_by(id: session[:id])
+  # @user = User.find_by(id: session[:id])
+  @user = current_user
   erb :"users/show"
 end

@@ -1,20 +1,43 @@
 <div class="container">
+  <% if current_user %>
+    <form class="profile-nav" action="users/<%= current_user.id %>" method="GET">
+      <input type="submit" value="View Profile">
+    </form>
+  <% end %>
+
   <h1>MuttWhat</h1>
 
-  <% if !session[:id] %>
+  <% if !current_user %>
     <div id="session-wrapper">
       <a id="register" href="/users/new">Register a new account</a>
 
       <div id="login-wrapper">
         <h5 class="log">Returning user? Login:</h5>
-        <form id="login" class="log" action="/users/login" method="POST">
+        <form id="login" class="log" action="/sessions/login" method="POST">
           <input type="email" name="email" placeholder="email">
           <input type="password" name="password_hash" placeholder="password">
           <input type="submit">
         </form>
       </div>
     </div>
-
   <% end %>
+
+  <div class="mutt-display">
+    <div id="pic<%= @mutt.id %>" class="pic">
+      <a href="mutts/<%= @mutt.id %>"><img src="<%= @mutt.pictures.first.url %>"></a>
+      <a id="next" href="mutts/<%= @mutt.id + 1 %>">next</a>
+      <a id="guess" href="mutts/<%= @mutt.id %>/breeds">Guess ..?</a>
+    </div>
+  </div>
+
+
+  <!-- <div class="mutt-display-ish">
+    <% @mutts.each do |mutt| %>
+      <div id="pic<%= mutt.id %>" class="pic">
+        <a href="mutts/<%= mutt.id %>"><img src="<%= mutt.pictures.last.url %>"></a>
+        <a href="mutts/<%= mutt.id %>/breeds">Guess ..?</a>
+      </div>
+    <% end %>
+  </div> -->
 
 </div>

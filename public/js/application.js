@@ -1,7 +1,16 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  console.log("jQuery'd!");
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('#next').on('click', function(e) {
+    e.preventDefault();
+    var route = $(this).attr('href');
+
+    $.ajax({
+      url: route,
+      method: 'get'
+    })
+    .done(function(response, textStatus) {
+      console.log(response);
+    })
+  })
 });
