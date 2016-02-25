@@ -7,6 +7,10 @@
     <% if mutt != Mutt.last %>
       <a id="next" class="carousel" href="mutts/<%= mutt.id + 1 %>">next</a>
     <% end %>
-    <a id="guess" href="mutts/<%= mutt.id %>/breeds">Guess This Mutt's Breed</a>
+    <% if guess %>
+      <h3>You guessed this dog's breed is: <a href="<%= guess.link %>"><%= guess.name %></a>
+    <% else %>
+      <a id="guess" href="mutts/<%= @mutt.id %>/breeds">Guess This Mutt's Breed</a>
+    <% end %>
   </div>
 </div>

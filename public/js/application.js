@@ -15,7 +15,7 @@ $(document).ready(function() {
     })
   });
 
-  $('#guess').on('click', function(e) {
+  $('.container').on('click', '#guess', function(e) {
     e.preventDefault();
     var route = $(this).attr('href');
 

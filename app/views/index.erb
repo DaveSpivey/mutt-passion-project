@@ -22,17 +22,10 @@
     </div>
   <% end %>
 
-  <div class="mutt-display">
-    <div id="pic<%= @mutt.id %>" class="pic">
-      <% if @mutt != Mutt.first %>
-        <a id="previous" class="carousel" href="mutts/<%= @mutt.id - 1 %>">previous</a>
-      <% end %>
-      <a href="mutts/<%= @mutt.id %>"><img src="<%= @mutt.pictures.first.url %>"></a>
-      <% if @mutt != Mutt.last %>
-        <a id="next" class="carousel" href="mutts/<%= @mutt.id + 1 %>">next</a>
-      <% end %>
-      <a id="guess" href="mutts/<%= @mutt.id %>/breeds">Guess This Mutt's Breed</a>
-    </div>
-  </div>
+  <% if @breed %>
+    <%= erb :"mutts/_show", layout: false, locals: {mutt: @mutt, guess: @breed} %>
+  <% else %>
+    <%= erb :"mutts/_show", layout: false, locals: {mutt: @mutt, guess: nil} %>
+  <% end %>
 
 </div>

@@ -5,6 +5,7 @@ end
 get '/mutts/:id' do
   @mutt = Mutt.find(params[:id])
   counter = 0
+
   while @mutt.pictures.length == 0
     @mutt = Mutt.where("id > ?", params[:id]).first
     counter += 1
@@ -12,7 +13,7 @@ get '/mutts/:id' do
   end
 
   if request.xhr?
-    erb :"mutts/_show", layout: false, locals: { mutt_id: @mutt.id, mutt_pic: @mutt.pictures.first.url}
+    erb :"mutts/_show", layout: false, locals: { mutt: @mutt, guess: nil }
   else
     erb :"mutts/show"
   end
