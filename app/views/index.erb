@@ -22,22 +22,10 @@
     </div>
   <% end %>
 
-  <div class="mutt-display">
-    <div id="pic<%= @mutt.id %>" class="pic">
-      <a href="mutts/<%= @mutt.id %>"><img src="<%= @mutt.pictures.first.url %>"></a>
-      <a id="next" href="mutts/<%= @mutt.id + 1 %>">next</a>
-      <a id="guess" href="mutts/<%= @mutt.id %>/breeds">Guess ..?</a>
-    </div>
-  </div>
-
-
-  <!-- <div class="mutt-display-ish">
-    <% @mutts.each do |mutt| %>
-      <div id="pic<%= mutt.id %>" class="pic">
-        <a href="mutts/<%= mutt.id %>"><img src="<%= mutt.pictures.last.url %>"></a>
-        <a href="mutts/<%= mutt.id %>/breeds">Guess ..?</a>
-      </div>
-    <% end %>
-  </div> -->
+  <% if @breed %>
+    <%= erb :"mutts/_show", layout: false, locals: {mutt: @mutt, guess: @breed} %>
+  <% else %>
+    <%= erb :"mutts/_show", layout: false, locals: {mutt: @mutt, guess: nil} %>
+  <% end %>
 
 </div>
