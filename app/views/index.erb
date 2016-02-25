@@ -24,20 +24,15 @@
 
   <div class="mutt-display">
     <div id="pic<%= @mutt.id %>" class="pic">
+      <% if @mutt != Mutt.first %>
+        <a id="previous" class="carousel" href="mutts/<%= @mutt.id - 1 %>">previous</a>
+      <% end %>
       <a href="mutts/<%= @mutt.id %>"><img src="<%= @mutt.pictures.first.url %>"></a>
-      <a id="next" href="mutts/<%= @mutt.id + 1 %>">next</a>
-      <a id="guess" href="mutts/<%= @mutt.id %>/breeds">Guess ..?</a>
+      <% if @mutt != Mutt.last %>
+        <a id="next" class="carousel" href="mutts/<%= @mutt.id + 1 %>">next</a>
+      <% end %>
+      <a id="guess" href="mutts/<%= @mutt.id %>/breeds">Guess This Mutt's Breed</a>
     </div>
   </div>
-
-
-  <!-- <div class="mutt-display-ish">
-    <% @mutts.each do |mutt| %>
-      <div id="pic<%= mutt.id %>" class="pic">
-        <a href="mutts/<%= mutt.id %>"><img src="<%= mutt.pictures.last.url %>"></a>
-        <a href="mutts/<%= mutt.id %>/breeds">Guess ..?</a>
-      </div>
-    <% end %>
-  </div> -->
 
 </div>

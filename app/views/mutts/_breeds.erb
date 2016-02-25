@@ -1,0 +1,8 @@
+<h4>Pick a breed:</h4>
+<form id="breed-form" action="/mutts/<%= @mutt.id %>/breeds" method="POST">
+  <select>
+    <% @breeds.each do |breed| %>
+      <option value="<%= breed.name %>"><%= breed.name %></option>
+    <% end %>
+  </select>
+</form>

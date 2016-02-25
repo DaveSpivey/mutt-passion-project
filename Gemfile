@@ -14,6 +14,11 @@ gem 'activerecord', '~>4.1'
 gem 'rake'
 gem 'bcrypt'
 
+gem 'httparty'
+gem 'nokogiri'
+gem 'pry'
+gem 'sinatra-flash'
+
 gem 'shotgun'
 
 group :test do

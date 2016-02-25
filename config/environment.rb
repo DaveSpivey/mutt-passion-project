@@ -15,8 +15,15 @@ require 'pg'
 require 'active_record'
 require 'logger'
 
+require 'Nokogiri'
+require 'HTTParty'
+require 'JSON'
+require 'csv'
+require 'Pry'
+
 require 'sinatra'
 require "sinatra/reloader" if development?
+require "sinatra/flash"
 
 require 'erb'
 

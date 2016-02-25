@@ -1,9 +1,9 @@
-get 'mutts/:id/pictures/new' do
-  @mutt = Mutt.find(params[:id])
+get '/mutts/:mutt_id/pictures/new' do
+  @mutt = Mutt.find(params[:mutt_id])
   erb :"mutts/create_pic"
 end
 
-post 'mutts/:id/pictures' do
+post '/mutts/:mutt_id/pictures' do
   p params
   root = APP_ROOT.to_s
   File.open(root + '/public/images/' + params['file'][:filename], "w") do |f|
@@ -13,5 +13,5 @@ post 'mutts/:id/pictures' do
       p "upload saved!"
     end
   end
-  erb :"mutts/show"
+  redirect "/mutts/#{params[:mutt_id]}"
 end

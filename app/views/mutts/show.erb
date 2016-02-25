@@ -4,7 +4,7 @@
 <div class="mutt-display">
   <% @mutt.pictures.each do |picture| %>
     <div id="pic<%= picture.id %>" class="pic">
-      <img src="<%= picture.url %>">
+      <img src="../<%= picture.url %>">
     </div>
   <% end %>
 
@@ -15,4 +15,3 @@
   <% end %>
 </div>
 
-<!-- Image url is not absolute - path changes based on current directory -->
