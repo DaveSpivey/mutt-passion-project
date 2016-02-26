@@ -1,12 +1,21 @@
 <div class="mutt-display">
   <div id="pic<%= mutt.id %>" class="pic">
-    <% if mutt != Mutt.first %>
-      <a id="previous" class="carousel" href="mutts/<%= mutt.id - 1 %>">previous</a>
-    <% end %>
-    <a href="mutts/<%= mutt.id %>"><img src="<%= mutt.pictures.first.url %>"></a>
-    <% if mutt != Mutt.last %>
-      <a id="next" class="carousel" href="mutts/<%= mutt.id + 1 %>">next</a>
-    <% end %>
+    <div id="carousel-wrapper">
+        <div id="prev-div" class="carousel-nav">
+      <% if mutt != Mutt.first %>
+          <a id="previous" class="carousel" href="mutts/<%= mutt.id - 1 %>"> </a>
+      <% end %>
+        </div>
+      <!-- image -->
+      <a class="mutt-pic" href="mutts/<%= mutt.id %>"><img src="<%= mutt.pictures.first.url %>"></a>
+
+      <% if mutt != Mutt.last %>
+        <div id="next-div" class="carousel-nav">
+          <a id="next" class="carousel" href="mutts/<%= mutt.id + 1 %>"> </a>
+        </div>
+      <% end %>
+    </div>
+
     <% if guess %>
       <h3>You guessed this dog's breed is: <a href="<%= guess.link %>"><%= guess.name %></a><br>
       <h4>Other users thought this dog was:</h4>
@@ -16,8 +25,11 @@
           <li><a href="<%= breed_link %>"><%= breed[0] %></a>: <%= breed[1] %> votes</li>
         <% end %>
       </ul>
+      <aside>
+        <h4><a href="/adoptables">Find a Local Mutt to Adopt</a></h4>
+      </aside>
     <% else %>
-      <a id="guess" href="mutts/<%= @mutt.id %>/breeds">Guess This Mutt's Breed</a>
+      <p><a id="guess" href="mutts/<%= @mutt.id %>/breeds">Guess This Mutt's Breed</a></p>
     <% end %>
   </div>
 </div>

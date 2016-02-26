@@ -12,5 +12,3 @@ end
 dogs.each do |breed, href|
   Breed.create(name: breed, link: "https://en.wikipedia.org#{href}")
 end
-
-Breed.

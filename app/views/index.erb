@@ -24,10 +24,14 @@
 
   <h3><%= @error %></h3>
 
-  <% if @breed %>
-    <%= erb :"mutts/_show", layout: false, locals: {mutt: @mutt, guess: @breed} %>
-  <% else %>
-    <%= erb :"mutts/_show", layout: false, locals: {mutt: @mutt, guess: nil} %>
+  <% if @mutt%>
+    <% if @pictures.length != 0 %>
+      <% if @breed %>
+        <%= erb :"mutts/_show", layout: false, locals: {mutt: @mutt, guess: @breed} %>
+      <% else %>
+        <%= erb :"mutts/_show", layout: false, locals: {mutt: @mutt, guess: nil} %>
+      <% end %>
+    <% end %>
   <% end %>
 
 </div>
