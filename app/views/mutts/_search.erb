@@ -1,0 +1,6 @@
+<form class="guess-form" action="/mutts/<%= mutt_id %>/breeds" method="POST">
+  <p>Search result:</p>
+  <input type="text" name="breed_name" value="<%= breed_name %>">
+  <input type="hidden" name="breed_id" value="<%= breed_id %>">
+  <input type="submit" value="Guess">
+</form>

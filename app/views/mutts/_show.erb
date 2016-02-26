@@ -8,7 +8,14 @@
       <a id="next" class="carousel" href="mutts/<%= mutt.id + 1 %>">next</a>
     <% end %>
     <% if guess %>
-      <h3>You guessed this dog's breed is: <a href="<%= guess.link %>"><%= guess.name %></a>
+      <h3>You guessed this dog's breed is: <a href="<%= guess.link %>"><%= guess.name %></a><br>
+      <h4>Other users thought this dog was:</h4>
+      <ul>
+        <% mutt.what.each do |breed| %>
+          <% breed_link = mutt.breeds.find_by(name: breed[0]).link %>
+          <li><a href="<%= breed_link %>"><%= breed[0] %></a>: <%= breed[1] %> votes</li>
+        <% end %>
+      </ul>
     <% else %>
       <a id="guess" href="mutts/<%= @mutt.id %>/breeds">Guess This Mutt's Breed</a>
     <% end %>

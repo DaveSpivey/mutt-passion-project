@@ -15,7 +15,5 @@ post '/users' do
 end
 
 get '/users/:id' do
-  # @user = User.find_by(id: session[:id])
-  @user = current_user
   erb :"users/show"
 end

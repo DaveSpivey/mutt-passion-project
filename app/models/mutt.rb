@@ -3,7 +3,7 @@ class Mutt < ActiveRecord::Base
   has_many :breeds, foreign_key: :mutt_id
   has_many :pictures, foreign_key: :mutt_id
 
-  def self.what
+  def what
     breed_matcher = {}
     self.breeds.each do |breed|
       if breed_matcher.keys.include? breed.name
