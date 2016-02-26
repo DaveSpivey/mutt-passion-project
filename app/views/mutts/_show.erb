@@ -12,7 +12,8 @@
       <h4>Other users thought this dog was:</h4>
       <ul>
         <% mutt.what.each do |breed| %>
-          <li><%= breed[0] %>: <%= breed[1] %> votes</li>
+          <% breed_link = mutt.breeds.find_by(name: breed[0]).link %>
+          <li><a href="<%= breed_link %>"><%= breed[0] %></a>: <%= breed[1] %> votes</li>
         <% end %>
       </ul>
     <% else %>

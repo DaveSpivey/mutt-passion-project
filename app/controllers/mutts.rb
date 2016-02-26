@@ -5,9 +5,14 @@ end
 get '/mutts/:id' do
   @mutt = Mutt.find(params[:id])
   counter = 0
+  p params[:nav]
 
   while @mutt.pictures.length == 0
-    @mutt = Mutt.where("id > ?", params[:id]).first
+    if params[:nav] == "next"
+      @mutt = Mutt.where("id > ?", params[:id]).first
+    else
+      @mutt = Mutt.where("id < ?", params[:id]).last
+    end
     counter += 1
     break if counter == 5
   end

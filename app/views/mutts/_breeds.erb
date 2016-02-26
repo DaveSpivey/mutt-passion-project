@@ -1,9 +1,19 @@
-<h4>Pick a breed:</h4>
-<form id="breed-form" action="/mutts/<%= @mutt.id %>/breeds" method="POST">
-  <select name="breed_id">
-    <% @breeds.each do |breed| %>
-      <option value="<%= breed.id %>"><%= breed.name %></option>
-    <% end %>
-    <input type="submit" value="Guess">
-  </select>
-</form>
+<div id="dropdown">
+  <h4>Pick a breed:</h4>
+  <form id="breed-form" class="guess-form" action="/mutts/<%= @mutt.id %>/breeds" method="POST">
+    <select name="breed_id">
+      <% @breeds.each do |breed| %>
+        <option value="<%= breed.id %>"><%= breed.name %></option>
+      <% end %>
+      <input type="submit" value="Guess">
+    </select>
+  </form>
+</div>
+
+<div id="search">
+  <h4>..or search:</h4>
+  <form id="breed-search" action="/mutts/<%= @mutt.id %>/breeds/search" method="GET">
+    <input type="text" name="query">
+    <input type="submit" value="Search">
+  </form>
+</div>
