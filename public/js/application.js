@@ -1,10 +1,10 @@
 $(document).ready(function() {
   console.log("jQuery'd!");
 
-  $('.container').on('click', 'div.pic .carousel', function(e) {
+  $('.container').on('click', '.mutt-display .carousel', function(e) {
     e.preventDefault();
     var route = $(this).attr('href');
-    var direction = $(this).text();
+    var direction = $(this).attr('id');
 
     $.ajax({
       url: route,
