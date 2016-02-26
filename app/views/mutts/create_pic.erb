@@ -1,0 +1,5 @@
+<form action="/mutts/<%= @mutt.id %>/pictures" enctype="multipart/form-data" method='POST'>
+    <input name="file" type="file" />
+    <input name="mutt_id" value="<%= @mutt.id %>" />
+    <input type="submit" value="Upload" />
+</form>

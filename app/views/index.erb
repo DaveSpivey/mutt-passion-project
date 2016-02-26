@@ -1,20 +1,33 @@
 <div class="container">
+  <% if current_user %>
+    <form class="profile-nav" action="users/<%= current_user.id %>" method="GET">
+      <input type="submit" value="View Profile">
+    </form>
+  <% end %>
+
   <h1>MuttWhat</h1>
 
-  <% if !session[:id] %>
+  <% if !current_user %>
     <div id="session-wrapper">
       <a id="register" href="/users/new">Register a new account</a>
 
       <div id="login-wrapper">
         <h5 class="log">Returning user? Login:</h5>
-        <form id="login" class="log" action="/users/login" method="POST">
+        <form id="login" class="log" action="/sessions" method="POST">
           <input type="email" name="email" placeholder="email">
           <input type="password" name="password_hash" placeholder="password">
           <input type="submit">
         </form>
       </div>
     </div>
+  <% end %>
 
+  <h3><%= @error %></h3>
+
+  <% if @breed %>
+    <%= erb :"mutts/_show", layout: false, locals: {mutt: @mutt, guess: @breed} %>
+  <% else %>
+    <%= erb :"mutts/_show", layout: false, locals: {mutt: @mutt, guess: nil} %>
   <% end %>
 
 </div>

@@ -7,28 +7,7 @@ h1 {
   font-size: 5em;
 }
 
-#session-wrapper {
-  float: right;
-  position: relative;
-  display: inline-block;
-  top: 3em;
-}
-
-#login-wrapper {
-  margin-top: 2em;
-}
-
-#register {
-  position: absolute;
-  right: 0;
-  margin-bottom: 2em;
-}
-
-#login {
-  clear: right;
-  max-width: 50%;
-}
-
-.log {
-  float: right;
+img {
+  max-width: 35%;
+  height: auto;
 }

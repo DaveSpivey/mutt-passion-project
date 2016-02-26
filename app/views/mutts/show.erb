@@ -1,3 +1,17 @@
+<h1><%= @mutt.name %>'s Page</h1>
 
 
-<img src="<%= @picture.url %>">
+<div class="mutt-display">
+  <% @mutt.pictures.each do |picture| %>
+    <div id="pic<%= picture.id %>" class="pic">
+      <img src="../<%= picture.url %>">
+    </div>
+  <% end %>
+
+  <% if current_user.id == @mutt.owner_id %>
+    <form action="/mutts/<%= @mutt.id %>/pictures/new" method="GET">
+      <input type="submit" value="Add a New Pic of This Mutt">
+    </form>
+  <% end %>
+</div>
+
