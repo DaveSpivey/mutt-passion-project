@@ -1,12 +1,12 @@
-post '/sessions/login' do
+post '/sessions' do
   @user = User.authenticate(params[:email], params[:password_hash])
 
   if @user
     session[:id] = @user.id
     redirect "/users/#{@user.id}"
   else
-    @error = "Incorrect email/password"
-    erb :index
+    flash[:error] = "Incorrect email/password"
+    redirect '/'
   end
 end
 

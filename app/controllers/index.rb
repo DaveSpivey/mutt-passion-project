@@ -6,6 +6,9 @@ get '/' do
   else
     @mutt = Mutt.first
   end
+  if flash[:error]
+    @error = flash[:error]
+  end
   erb :index
 end
 

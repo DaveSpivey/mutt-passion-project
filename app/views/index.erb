@@ -13,7 +13,7 @@
 
       <div id="login-wrapper">
         <h5 class="log">Returning user? Login:</h5>
-        <form id="login" class="log" action="/sessions/login" method="POST">
+        <form id="login" class="log" action="/sessions" method="POST">
           <input type="email" name="email" placeholder="email">
           <input type="password" name="password_hash" placeholder="password">
           <input type="submit">
@@ -21,6 +21,8 @@
       </div>
     </div>
   <% end %>
+
+  <h3><%= @error %></h3>
 
   <% if @breed %>
     <%= erb :"mutts/_show", layout: false, locals: {mutt: @mutt, guess: @breed} %>
