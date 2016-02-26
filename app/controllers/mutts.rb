@@ -5,22 +5,30 @@ end
 get '/mutts/:id' do
   @mutt = Mutt.find(params[:id])
   counter = 0
-  p params[:nav]
+  p "$" * 80
+  p @mutt.name
 
-  while @mutt.pictures.length == 0
-    if params[:nav] == "next"
-      @mutt = Mutt.where("id > ?", params[:id]).first
-    else
-      @mutt = Mutt.where("id < ?", params[:id]).last
+  if @mutt
+    if params[:nav]
+      while @mutt.pictures.length == 0
+        if params[:nav] == "next"
+          @mutt = Mutt.where("id > ?", params[:id]).first
+        else
+          @mutt = Mutt.where("id < ?", params[:id]).last
+        end
+        counter += 1
+        break if counter == 5
+      end
     end
-    counter += 1
-    break if counter == 5
-  end
 
-  if request.xhr?
-    erb :"mutts/_show", layout: false, locals: { mutt: @mutt, guess: nil }
+    if request.xhr?
+      erb :"mutts/_show", layout: false, locals: { mutt: @mutt, guess: nil }
+    else
+      erb :"mutts/show"
+    end
   else
-    erb :"mutts/show"
+    p "%" * 80
+    p "I DUNNO"
   end
 end
 
