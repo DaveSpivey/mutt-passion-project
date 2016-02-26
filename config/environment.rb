@@ -21,6 +21,10 @@ require 'JSON'
 require 'csv'
 require 'Pry'
 
+require 'petfinder'
+require 'dotenv'
+Dotenv.load
+
 require 'sinatra'
 require "sinatra/reloader" if development?
 require "sinatra/flash"

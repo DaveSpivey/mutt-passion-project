@@ -25,6 +25,9 @@
           <li><a href="<%= breed_link %>"><%= breed[0] %></a>: <%= breed[1] %> votes</li>
         <% end %>
       </ul>
+      <aside>
+        <h4><a href="/adoptables">Find a Local Mutt to Adopt</a></h4>
+      </aside>
     <% else %>
       <p><a id="guess" href="mutts/<%= @mutt.id %>/breeds">Guess This Mutt's Breed</a></p>
     <% end %>

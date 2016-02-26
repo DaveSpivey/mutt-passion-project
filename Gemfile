@@ -19,6 +19,9 @@ gem 'nokogiri'
 gem 'pry'
 gem 'sinatra-flash'
 
+gem 'petfinder', '~> 1.0', '>= 1.0.3'
+gem 'dotenv'
+
 gem 'shotgun'
 
 group :test do

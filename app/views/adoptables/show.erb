@@ -1,0 +1,6 @@
+<h1>Local Mutts:</h1>
+
+<% @pets.each do |pet| %>
+  <p><img src="<%= pet.photos[0].medium %>"></p>
+  <p><%= pet.name %></p>
+<% end %>
