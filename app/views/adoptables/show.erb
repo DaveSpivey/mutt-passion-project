@@ -1,6 +1,10 @@
-<h1>Local Mutts:</h1>
+<% if @pets %>
+  <h2>Local Mutts in <%= @pets[0].city[0] %>:</h2>
+  <% @pets.each do |pet| %>
+    <img src="<%= pet.photos[0].medium %>">
+    <h3>  <%= pet.name %></h3>
+  <% end %>
 
-<% @pets.each do |pet| %>
-  <p><img src="<%= pet.photos[0].medium %>"></p>
-  <p><%= pet.name %></p>
+<% else %>
+  <h2>No results for this search</h2>
 <% end %>
