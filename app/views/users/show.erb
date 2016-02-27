@@ -1,9 +1,9 @@
-<h1>Welcome <%= current_user.name %>!</h1>
+<h2>Welcome <%= current_user.name %>!</h2>
 
 <% if flash[:mutt_error] %>
   <h2><%= flash[:mutt_error] %><h2>
 <% else %>
-  <h2>Your Mutts:</h2>
+  <h2 id="your-mutts">Your Mutts:</h2>
 <% end %>
 
 <% current_user.mutts.each do |mutt| %>

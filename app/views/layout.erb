@@ -13,15 +13,18 @@
 </head>
 <body>
 
-  <p><a href="/">Home</a></p>
-  <% if current_user %>
-    <form class="log logout" action="/sessions/<%= current_user.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Logout">
-    </form>
-  <% end %>
+  <div class="wrapper">
+    <% if current_user %>
+      <form class="log logout" action="/sessions/<%= current_user.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Logout">
+      </form>
+    <% end %>
 
-  <%= yield %>
+    <a id="muttwhat" href="/"><h1>Mutt<span id="what">What</span></h1></a><br>
 
+    <%= yield %>
+
+  </div>
 </body>
 </html>

@@ -1,11 +1,35 @@
-.container {
+.wrapper {
   margin: 2% 2% 2% 2%;
+}
+
+.container {
+  margin-top: -1em;
 }
 
 h1 {
   margin-top: 0;
   display: inline-block;
-  font-size: 5em;
+  font-size: 4em;
+  font-family: Verdana, sans-serif;
+  font-weight: lighter;
+}
+
+h2 {
+  font-size: 3em;
+  font-family: Verdana, sans-serif;
+  font-weight: lighter;
+}
+
+#muttwhat {
+  color: #777;
+}
+
+#what {
+  font-weight: bold;
+}
+
+#your-mutts {
+  font-size: 2em;
 }
 
 .mutt-display {
