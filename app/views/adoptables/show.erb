@@ -1,5 +1,6 @@
-<% if @pets %>
+<% if !@pets.empty? %>
   <h2>Local Mutts in <%= @pets[0].city[0] %>:</h2>
+
   <% @pets.each do |pet| %>
     <img src="<%= pet.photos[0].medium %>">
     <h3>  <%= pet.name %></h3>

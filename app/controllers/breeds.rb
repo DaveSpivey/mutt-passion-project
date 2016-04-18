@@ -9,9 +9,14 @@ get '/mutts/:mutt_id/breeds' do
 end
 
 post '/mutts/:mutt_id/breeds' do
+  if current_user
+    @user_id = current_user.id
+  else
+    @user_id = nil
+  end
   @mutt = Mutt.find(params[:mutt_id])
   @breed = Breed.find(params[:breed_id])
-  @guess = Breed.new(mutt_id: params[:id], name: @breed.name, user_id: current_user.id, link: @breed.link, value: 1)
+  @guess = Breed.new(mutt_id: params[:id], name: @breed.name, user_id: @user_id, link: @breed.link, value: 1)
   @mutt.breeds << @guess
   if @guess.save
     flash[:mutt_id] = params[:mutt_id]
